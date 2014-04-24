@@ -6,13 +6,13 @@ public class Deck
    final int CARDS_IN_DECK = 52;
 
    ArrayList<Card> deck;
-   public Deck1()
+   public Deck()
    {
             freshDeck();
    }
    public void freshDeck()
    {
-      deck = new ArrayList<Card>();
+      deck = new ArrayList<Card>(CARDS_IN_DECK);
       System.out.println(deck.size());
 
       for (int r = Card.ACE; r<=Card.KING;r++)
