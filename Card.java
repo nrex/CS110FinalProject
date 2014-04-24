@@ -130,6 +130,22 @@ public class Card
       else
          return true;
    }
+   /**
+   * Compares two cards to determine whic is larger
+   * @param card the other card
+   * @return 0 if the cards are the same. 
+     @return 1 if thiscard is higher
+     @return -1 if thiscard is lower
+   * falseotherwise.
+   */
+   
+   public int compareTo(Card otherCard)
+   {
+      if (this.rank = othercard.rank) return 0;
+      if (this.rank > othercard.rank) return 1;
+      if (this.rank < othercard.rank) return -1;
+   
+   
 
 }
     
