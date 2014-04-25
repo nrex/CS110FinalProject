@@ -9,6 +9,7 @@ public class War
    public int round_count; //a counter for info
    private int HALF = 26;
    private Card temp_card;
+   private int war_var;
 
    
    public War() throws NullPointerException
@@ -41,6 +42,8 @@ public class War
       Card temp_computer_card = computer.remove(0);
       System.out.println("P: "+temp_player_card);
       System.out.println("C: "+temp_computer_card);
+      System.out.println(player.size());
+      System.out.println(computer.size());
       
       if (temp_player_card.getRank() > temp_computer_card.getRank())//player has higher card
       {  
@@ -63,7 +66,7 @@ public class War
 
          player.add(0, temp_player_card);
          computer.add(0, temp_computer_card);
-         int what_is_this_var = this.warRound();
+         war_var = this.warRound();
          return 0;
       }
    }//end play round
@@ -86,7 +89,8 @@ public class War
          //System.out.println(computer.size());
          //System.out.println("WarPile Size: " +warPile.size());
          
-         int war_winner = this.playRound();
+         int war_winner = this.playRound(); //play a round to determine the winner.
+         
          int warPileLength = warPile.size();
          if (war_winner == 2)
          {
@@ -107,28 +111,39 @@ public class War
          }//computer won war
          else 
          {
-            this.warRound();
-            war_winner = 0;
+            if (war_var > 1) this.warRound();
             
          }//must play another round
          System.out.println(player.size());
          System.out.println(computer.size());
+         war_var = 0;
          return 0;
       }//warRound method
    
-   public static void main(String[] args) throws NullPointerException
+   public static void main(String[] args) throws IndexOutOfBoundsException
    {
-      int blah = 1;
-      War warGame = new War();
-//       do
-//       {
-//          blah = warGame.playRound();
-//       }
-//       while(blah!=0);
-      do {
-      warGame.warRound();
-      } while(warGame.round_count<2);
+       int blah = 1;
+
+      try
+      {
+         War warGame = new War();
+         do
+         {
+            blah = warGame.playRound();
+            System.out.println("Round: " + warGame.round_count);
+
+         } while(true);
+      } //try
+      catch (IndexOutOfBoundsException e)
+      {
+         System.out.println("Game Over");
+         if (blah==3) System.out.println("Computer Won");
+         if (blah==2) System.out.println("Player Won");
+         
+      }//catch
+      //warGame.warRound();
+
       
-      System.out.println("Round: " + warGame.round_count);
+      //System.out.println("Round: " + warGame.round_count);
    }//main
 }//public class 
