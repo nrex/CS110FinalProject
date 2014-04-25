@@ -138,14 +138,6 @@ public class Card
      @return -1 if thiscard is lower
    * falseotherwise.
    */
-   
-   public int compareTo(Card otherCard)
-   {
-      if (this.rank = othercard.rank) return 0;
-      if (this.rank > othercard.rank) return 1;
-      if (this.rank < othercard.rank) return -1;
-   
-   
 
 }
     
