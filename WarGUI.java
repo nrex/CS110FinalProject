@@ -5,7 +5,8 @@ import java.awt.event.*;
 public class WarGUI extends JFrame
 {
    private War game;
-   private JPanel leftPanel,rightPanel;
+   private JPanel leftPanel= new JPanel(new GridLayout(2,1,1,4));
+   private JPanel rightPanel= new JPanel(new GridLayout(2,1,1,4));
    private JPanel buttons = new JPanel(new GridLayout(4,1,2,2));
    private JButton playButton, exit, newGameButton;
    private JLabel status, title, per, com;
@@ -25,8 +26,11 @@ public class WarGUI extends JFrame
       newGameButton = new JButton("Play a new game...");
       exit = new JButton("Exit");
       
+      
       playButton.addActionListener(new ButtonListener());
       newGameButton.addActionListener(new ButtonListener());
+      exit.addActionListener(new ExitHandler());
+      
       leftPanel.add(playButton);
       leftPanel.add(newGameButton);
       
@@ -37,17 +41,14 @@ public class WarGUI extends JFrame
       //buttons.add(status);
       per = new JLabel("Your Card:");
       com = new JLabel("Computer's Card:");
+      buttons.add(playButton);
+      buttons.add(newGameButton);
+      buttons.add(exit);
+      this.getContentPane().add(buttons);
+      pack();
       leftPanel.add(per);
       rightPanel.add(com);
       
-      
-      
-      
-      buttons.add(playButton);
-      buttons.add(newGameButton);
-      this.getContentPane().add(buttons);
-      pack();
-      exit.addActionListener(new ExitHandler());
       add(leftPanel);
       add(rightPanel);
       
@@ -62,6 +63,13 @@ public class WarGUI extends JFrame
       public void actionPerformed(ActionEvent e)
       {     
          char winner;  
+      }
+   }
+   class ExitHandler implements ActionListener
+   {
+      public void actionPerformed(ActionEvent e) 
+      {
+         System.exit(0);
       }
    }
    
