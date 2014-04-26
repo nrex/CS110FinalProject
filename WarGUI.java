@@ -5,23 +5,25 @@ import java.awt.event.*;
 public class WarGUI extends JFrame
 {
    private War game;
-   private JPanel topPanel,leftPanel,rightPanel;
-   private JButton playButton;
-   private JButton newGameButton;
-   private Jlabel status;
-   private Jlabel title;
+   private JPanel leftPanel,rightPanel;
+   private JPanel buttons = new JPanel(new GridLayout(4,1,2,2));
+   private JButton playButton, exit, newGameButton;
+   private JLabel status, title, per, com;
+
    
    public WarGUI()
    {
+      super("War Game"); //JFrame
       setDefaultCloseOperation(EXIT_ON_CLOSE);
-      setLayout(new GridLayout(2,2));
+      setLayout(new GridLayout(1,4));
       game = new War();
-      topPanel = new Jpanel();
-      leftPanel = new Jpanel();
-      rightPanel = new Jpanel();
+
+      leftPanel = new JPanel();
+      rightPanel = new JPanel();
       
-      playButton =new JButton();
-      newGameButton = new JButton();
+      playButton =new JButton("Play a round!");
+      newGameButton = new JButton("Play a new game...");
+      exit = new JButton("Exit");
       
       playButton.addActionListener(new ButtonListener());
       newGameButton.addActionListener(new ButtonListener());
@@ -29,64 +31,46 @@ public class WarGUI extends JFrame
       leftPanel.add(newGameButton);
       
       
-      title = new JLabel("Nate's War Game");
-      topPanel.add(title);
+      title = new JLabel("Nate's War Game"); 
+      buttons.add(title);
+      //status = new JLabel("Game in Progress");
+      //buttons.add(status);
+      per = new JLabel("Your Card:");
+      com = new JLabel("Computer's Card:");
+      leftPanel.add(per);
+      rightPanel.add(com);
       
-      status = new JLabel("Game in Progress");
-      topPanel.add(Status);
       
-      add(topPanel);
+      
+      
+      buttons.add(playButton);
+      buttons.add(newGameButton);
+      this.getContentPane().add(buttons);
+      pack();
+      exit.addActionListener(new ExitHandler());
       add(leftPanel);
       add(rightPanel);
       
+      setVisible(true);
+      
+      
+      
    }//war GUI
    
-    private class ButtonListener implements ActionListener
+   private class ButtonListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
       {     
          char winner;  
-
-         Button source = (e.getSource());
-         // make a move
-         if (game.move(source.getRow(),source.getCol()))
-         {
-            // react
-            if (game.getPlayer() == 'o')
-               source.setIcon(new ImageIcon("x.jpg"));
-            else
-               source.setIcon(new ImageIcon("o.jpg"));
-            
-            winner = game.winner();
-            
-            if ((winner !='_')||game.getMoves()==9)
-               if (winner != '_')
-               {
-                  status.setText("Winner is " + winner);
-                  disableAll();
-                 
-               }
-               else
-               {
-                  status.setText("It's a tie");
-                  disableAll();
-
-               
-               }
-              
-         }
       }
-      // disable all buttons
-      public void disableAll()
-      {
-         for (int r=0;r<3;r++)
-            for(int c=0;c<3;c++)
-            {
-               buttons[r][c].setEnabled(false);
-            }
-      
-      }
-   }     
+   }
+   
+   public static void main(String[] args) {
+	  new WarGUI();
+
+   }
+    
+           
 
 
 }
