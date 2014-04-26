@@ -12,33 +12,33 @@ public class War
    private int war_var;
 
    
-   public War() throws NullPointerException
+   public War() throws NullPointerException //constructor establishes the deck as well as both of the players
    {
-      warDeck = new Deck();
-      warDeck.shuffle();
-      player = new ArrayList<Card>(HALF);
-      computer = new ArrayList<Card>(HALF);
-      warPile = new ArrayList<Card>(0);
+      warDeck = new Deck(); //initialize the decks
+      warDeck.shuffle(); //shuffle the deck
+      player = new ArrayList<Card>(HALF); //create the player array list
+      computer = new ArrayList<Card>(HALF); //create the computer array list
+      warPile = new ArrayList<Card>(0); //create the empty warPile array list
             
-      for (int i = 0; i<HALF; i++)
+      for (int i = 0; i<HALF; i++) //deal half of the cards to the player
       {
          temp_card = warDeck.dealCard();
          player.add(temp_card);
       }  
       
-      for (int i = 0; i<HALF; i++)
+      for (int i = 0; i<HALF; i++) //deal half of the cards to the computer
       {
          temp_card = warDeck.dealCard();
          computer.add(temp_card);
       }  
       
-      round_count = 0;
+      round_count = 0; //initialize the number of rounds
    }//war constructor
    
-   public int playRound()
+   public int playRound()//play a round of war
    {
-      round_count+=1;
-      Card temp_player_card = player.remove(0);
+      round_count+=1;//increase the round count
+      Card temp_player_card = player.remove(0); 
       Card temp_computer_card = computer.remove(0);
       System.out.println("P: "+temp_player_card);
       System.out.println("C: "+temp_computer_card);
