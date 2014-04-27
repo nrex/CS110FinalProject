@@ -26,6 +26,8 @@ public class Card
                               // SPADES, HEARTS, DIAMONDS, CLUBS.
                               
     private int rank;  // The rank of this card, from 1 to 13.
+    
+    private ImageIcon front, back;
                              
    /**
    * Creates a new playing card.
@@ -138,6 +140,79 @@ public class Card
      @return -1 if thiscard is lower
    * falseotherwise.
    */
+   public void setImageIcon(Card c)
+   {
+   back = new ImageIcon("back.jpg");
+   if (suit == 0) //yeah, yeah, I know this method sucks but I couldn't figure out how to nest switch statements 
+      {
+         if (rank == 2) front = new ImageIcon("2s.jpg");
+         if (rank == 3) front = new ImageIcon("3s.jpg");
+         if (rank == 4) front = new ImageIcon("4s.jpg");
+         if (rank == 5) front = new ImageIcon("5s.jpg");
+         if (rank == 6) front = new ImageIcon("6s.jpg");
+         if (rank == 7) front = new ImageIcon("7s.jpg");
+         if (rank == 8) front = new ImageIcon("8s.jpg");
+         if (rank == 9) front = new ImageIcon("9s.jpg");
+         if (rank == 10) front = new ImageIcon("10s.jpg");
+         if (rank == 11) front = new ImageIcon("jacks.jpg");
+         if (rank == 12) front = new ImageIcon("queens.jpg");
+         if (rank == 13) front = new ImageIcon("kings.jpg");
+         if (rank == 1) front = new ImageIcon("aces.jpg");
+         else return "invalid";  
+      }
+      else if (suit == 1)
+      {
+         if (rank == 2) front = new ImageIcon("2h.jpg");
+         if (rank == 3) front = new ImageIcon("3h.jpg");
+         if (rank == 4) front = new ImageIcon("4h.jpg");
+         if (rank == 5) front = new ImageIcon("5h.jpg");
+         if (rank == 6) front = new ImageIcon("6h.jpg");
+         if (rank == 7) front = new ImageIcon("7h.jpg");
+         if (rank == 8) front = new ImageIcon("8h.jpg");
+         if (rank == 9) front = new ImageIcon("9h.jpg");
+         if (rank == 10) front = new ImageIcon("10h.jpg");
+         if (rank == 11) front = new ImageIcon("jackh.jpg");
+         if (rank == 12) front = new ImageIcon("queenh.jpg");
+         if (rank == 13) front = new ImageIcon("kingh.jpg");
+         if (rank == 1) front = new ImageIcon("aceh.jpg");
+         else return "invalid"; 
+      }
+      else if (suit == 3)
+      {
+         if (rank == 2) front = new ImageIcon("2d.jpg");
+         if (rank == 3) front = new ImageIcon("3d.jpg");
+         if (rank == 4) front = new ImageIcon("4d.jpg");
+         if (rank == 5) front = new ImageIcon("5d.jpg");
+         if (rank == 6) front = new ImageIcon("6d.jpg");
+         if (rank == 7) front = new ImageIcon("7d.jpg");
+         if (rank == 8) front = new ImageIcon("8d.jpg");
+         if (rank == 9) front = new ImageIcon("9d.jpg");
+         if (rank == 10) front = new ImageIcon("10d.jpg");
+         if (rank == 11) front = new ImageIcon("jackd.jpg");
+         if (rank == 12) front = new ImageIcon("queend.jpg");
+         if (rank == 13) front = new ImageIcon("kingd.jpg");
+         if (rank == 1) front = new ImageIcon("aced.jpg");
+         else return "invalid"; 
+      }
+      else if (suit ==4)
+      {
+         if (rank == 2) front = new ImageIcon("2c.jpg");
+         if (rank == 3) front = new ImageIcon("3c.jpg");
+         if (rank == 4) front = new ImageIcon("4c.jpg");
+         if (rank == 5) front = new ImageIcon("5c.jpg");
+         if (rank == 6) front = new ImageIcon("6c.jpg");
+         if (rank == 7) front = new ImageIcon("7c.jpg");
+         if (rank == 8) front = new ImageIcon("8c.jpg");
+         if (rank == 9) front = new ImageIcon("9c.jpg");
+         if (rank == 10) front = new ImageIcon("10c.jpg");
+         if (rank == 11) front = new ImageIcon("jackc.jpg");
+         if (rank == 12) front = new ImageIcon("queenc.jpg");
+         if (rank == 13) front = new ImageIcon("kingc.jpg");
+         if (rank == 1) front = new ImageIcon("acec.jpg");
+         else return "invalid"; 
+      }
+      return "invalid";
+   }
 
 }
     

@@ -15,6 +15,7 @@ public class War
    public War() throws NullPointerException //constructor establishes the deck as well as both of the players
    {
       warDeck = new Deck(); //initialize the decks
+      
       warDeck.shuffle(); //shuffle the deck
       player = new ArrayList<Card>(HALF); //create the player array list
       computer = new ArrayList<Card>(HALF); //create the computer array list

@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class Deck
 {
+
    final int CARDS_IN_DECK = 52;
 
    ArrayList<Card> deck;

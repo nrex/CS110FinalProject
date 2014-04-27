@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class WarGUI extends JFrame
 {
-   private War game;
+   private War warGame;
    private JPanel leftPanel= new JPanel(new GridLayout(2,1,1,4));
    private JPanel rightPanel= new JPanel(new GridLayout(2,1,1,4));
    private JPanel buttons = new JPanel(new GridLayout(4,1,2,2));
@@ -15,9 +15,10 @@ public class WarGUI extends JFrame
    public WarGUI()
    {
       super("War Game"); //JFrame
+      
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       setLayout(new GridLayout(1,4));
-      game = new War();
+      warGame = new War();  
 
       leftPanel = new JPanel();
       rightPanel = new JPanel();
@@ -27,8 +28,8 @@ public class WarGUI extends JFrame
       exit = new JButton("Exit");
       
       
-      playButton.addActionListener(new ButtonListener());
-      newGameButton.addActionListener(new ButtonListener());
+      playButton.addActionListener(new PlayButtonListener());
+      newGameButton.addActionListener(new NewGameButtonListener());
       exit.addActionListener(new ExitHandler());
       
       leftPanel.add(playButton);
@@ -58,20 +59,43 @@ public class WarGUI extends JFrame
       
    }//war GUI
    
-   private class ButtonListener implements ActionListener
+   class PlayButtonListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
       {     
-         char winner;  
-      }
-   }
-   class ExitHandler implements ActionListener
+         if (e.getSource() instanceof JButton)
+         {   
+            JButton b = (JButton)(e.getSource());
+            WarGUI.warGame.playRound();    
+         } 
+      }//actionPerformed for PlayButtonListener
+   }//PlayButtonListener
+   
+   class NewGameButtonListener implements ActionListener
+   {
+      public void actionPerformed(ActionEvent e)
+      {     
+         if (e.getSource() instanceof JButton)
+         {
+            War warGame = new War();  
+            //int blah = warGame.playRound();
+            //System.out.println("Round: " + warGame.round_count);
+
+
+         } 
+      }//actionPerformed for PlayButtonListener
+   }//PlayButtonListener
+   
+   
+   
+   
+   private class ExitHandler implements ActionListener
    {
       public void actionPerformed(ActionEvent e) 
       {
          System.exit(0);
-      }
-   }
+      }//actionPerformed for ExitHandler
+   }//ExitHandler
    
    public static void main(String[] args) {
 	  new WarGUI();
