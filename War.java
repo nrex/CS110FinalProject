@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class War 
 {
    private Deck warDeck;
-   private ArrayList<Card> player;
-   private ArrayList<Card> computer;
+   public ArrayList<Card> player;
+   public ArrayList<Card> computer;
    private ArrayList<Card> warPile;
    public int round_count; //a counter for info
    private int HALF = 26;

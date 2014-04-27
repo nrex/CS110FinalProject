@@ -10,7 +10,10 @@ public class WarGUI extends JFrame
    private JPanel buttons = new JPanel(new GridLayout(4,1,2,2));
    private JButton playButton, exit, newGameButton;
    private JLabel status, title, per, com;
-
+   private ImageIcon cardBack;
+   
+   private JLabel back1 = new JLabel();
+   private JLabel back2 = new JLabel();
    
    public WarGUI()
    {
@@ -19,7 +22,7 @@ public class WarGUI extends JFrame
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       setLayout(new GridLayout(1,4));
       warGame = new War();  
-
+   
       leftPanel = new JPanel();
       rightPanel = new JPanel();
       
@@ -27,13 +30,12 @@ public class WarGUI extends JFrame
       newGameButton = new JButton("Play a new game...");
       exit = new JButton("Exit");
       
+      cardBack = new ImageIcon("back.jpg");
       
       playButton.addActionListener(new PlayButtonListener());
       newGameButton.addActionListener(new NewGameButtonListener());
       exit.addActionListener(new ExitHandler());
       
-      leftPanel.add(playButton);
-      leftPanel.add(newGameButton);
       
       
       title = new JLabel("Nate's War Game"); 
@@ -42,6 +44,12 @@ public class WarGUI extends JFrame
       //buttons.add(status);
       per = new JLabel("Your Card:");
       com = new JLabel("Computer's Card:");
+      
+
+      back2.setIcon(cardBack);
+      back1.setIcon(cardBack); //yo what am i doing?
+      
+      
       buttons.add(playButton);
       buttons.add(newGameButton);
       buttons.add(exit);
@@ -49,6 +57,9 @@ public class WarGUI extends JFrame
       pack();
       leftPanel.add(per);
       rightPanel.add(com);
+      
+      leftPanel.add(back1);
+      rightPanel.add(back2);
       
       add(leftPanel);
       add(rightPanel);
@@ -65,8 +76,8 @@ public class WarGUI extends JFrame
       {     
          if (e.getSource() instanceof JButton)
          {   
-            JButton b = (JButton)(e.getSource());
-            WarGUI.warGame.playRound();    
+            //JButton b = (JButton)(e.getSource());
+            //WarGUI.warGame.playRound();    
          } 
       }//actionPerformed for PlayButtonListener
    }//PlayButtonListener
@@ -77,7 +88,11 @@ public class WarGUI extends JFrame
       {     
          if (e.getSource() instanceof JButton)
          {
-            War warGame = new War();  
+            War warGame = new War();
+            Card testCard = warGame.player.get(0);
+            testCard.setImageIcon();
+            back2.setIcon(testCard.getImageIcon());
+            
             //int blah = warGame.playRound();
             //System.out.println("Round: " + warGame.round_count);
 

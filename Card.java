@@ -5,6 +5,8 @@
  *
  * @Jackie Horton
  */
+import javax.swing.*;
+import java.awt.*;
 
 public class Card 
 {     
@@ -38,6 +40,8 @@ public class Card
     {
         this.rank = rank;
         this.suit = suit;
+        front = null;
+        back = null;
     }
     
    /**
@@ -140,10 +144,17 @@ public class Card
      @return -1 if thiscard is lower
    * falseotherwise.
    */
-   public void setImageIcon(Card c)
+   
+   public ImageIcon getImageIcon()
    {
-   back = new ImageIcon("back.jpg");
-   if (suit == 0) //yeah, yeah, I know this method sucks but I couldn't figure out how to nest switch statements 
+      return c.front;   
+   }
+   
+   
+   public void setImageIcon()
+   {
+      back = new ImageIcon("back.jpg");
+      if (suit == 0) //yeah, yeah, I know this method sucks but I couldn't figure out how to nest switch statements 
       {
          if (rank == 2) front = new ImageIcon("2s.jpg");
          if (rank == 3) front = new ImageIcon("3s.jpg");
@@ -158,7 +169,7 @@ public class Card
          if (rank == 12) front = new ImageIcon("queens.jpg");
          if (rank == 13) front = new ImageIcon("kings.jpg");
          if (rank == 1) front = new ImageIcon("aces.jpg");
-         else return "invalid";  
+         
       }
       else if (suit == 1)
       {
@@ -175,7 +186,7 @@ public class Card
          if (rank == 12) front = new ImageIcon("queenh.jpg");
          if (rank == 13) front = new ImageIcon("kingh.jpg");
          if (rank == 1) front = new ImageIcon("aceh.jpg");
-         else return "invalid"; 
+         
       }
       else if (suit == 3)
       {
@@ -192,7 +203,7 @@ public class Card
          if (rank == 12) front = new ImageIcon("queend.jpg");
          if (rank == 13) front = new ImageIcon("kingd.jpg");
          if (rank == 1) front = new ImageIcon("aced.jpg");
-         else return "invalid"; 
+        
       }
       else if (suit ==4)
       {
@@ -209,9 +220,8 @@ public class Card
          if (rank == 12) front = new ImageIcon("queenc.jpg");
          if (rank == 13) front = new ImageIcon("kingc.jpg");
          if (rank == 1) front = new ImageIcon("acec.jpg");
-         else return "invalid"; 
+         
       }
-      return "invalid";
    }
 
 }
