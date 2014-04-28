@@ -128,6 +128,9 @@ public class War
       try
       {
          War warGame = new War();
+         Card testCard = warGame.player.get(0); //trying to figure out how to setImageIcon
+        
+         
          do
          {
             blah = warGame.playRound();

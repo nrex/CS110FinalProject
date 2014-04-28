@@ -5,11 +5,11 @@ import java.awt.event.*;
 public class WarGUI extends JFrame
 {
    private War warGame;
-   private JPanel leftPanel= new JPanel(new GridLayout(2,1,1,4));
-   private JPanel rightPanel= new JPanel(new GridLayout(2,1,1,4));
+   private JPanel leftPanel= new JPanel(new GridLayout(3,1,1,4));
+   private JPanel rightPanel= new JPanel(new GridLayout(3,1,1,4));
    private JPanel buttons = new JPanel(new GridLayout(4,1,2,2));
    private JButton playButton, exit, newGameButton;
-   private JLabel status, title, per, com;
+   private JLabel status, title, per, com, round;
    private ImageIcon cardBack;
    
    private JLabel back1 = new JLabel();
@@ -36,7 +36,7 @@ public class WarGUI extends JFrame
       newGameButton.addActionListener(new NewGameButtonListener());
       exit.addActionListener(new ExitHandler());
       
-      
+      round = new JLabel("Round: ");
       
       title = new JLabel("Nate's War Game"); 
       buttons.add(title);
@@ -76,8 +76,14 @@ public class WarGUI extends JFrame
       {     
          if (e.getSource() instanceof JButton)
          {   
-            //JButton b = (JButton)(e.getSource());
-            //WarGUI.warGame.playRound();    
+            int winner = warGame.playRound();
+            Card testCard1 = warGame.player.get(0);
+            Card testCard2 = warGame.computer.get(0);
+            back1.setIcon(testCard1.getImageIcon());
+            back2.setIcon(testCard2.getImageIcon());
+            round = new JLabel("Round: " + warGame.round_count);
+            leftPanel.add(round);
+            
          } 
       }//actionPerformed for PlayButtonListener
    }//PlayButtonListener
@@ -89,10 +95,14 @@ public class WarGUI extends JFrame
          if (e.getSource() instanceof JButton)
          {
             War warGame = new War();
-            Card testCard = warGame.player.get(0);
-            testCard.setImageIcon();
-            back2.setIcon(testCard.getImageIcon());
+            Card testCard1 = warGame.player.get(0);
+            Card testCard2 = warGame.computer.get(0);
+            back1.setIcon(testCard1.getImageIcon());
+            back2.setIcon(testCard2.getImageIcon());
             
+            
+            //System.out.println(warGame.player.size());
+            //System.out.println(warGame.computer.size());
             //int blah = warGame.playRound();
             //System.out.println("Round: " + warGame.round_count);
 
