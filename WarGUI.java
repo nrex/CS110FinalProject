@@ -1,3 +1,10 @@
+/**
+*The WarGUI class used the War class and generates a related GUI.
+*@Nathaniel Rex
+*/
+
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -81,6 +88,13 @@ public class WarGUI extends JFrame
       
    }//war GUI
    
+   /**
+   *The FinishButtonListener class is triggered when the user clicks the trigger button. 
+   *The button plays rounds of war until one of the decks gets reasonably low. Mainly used
+   *to test the functionality of the endgame. 
+   */
+
+   
    class FinishButtonListener implements ActionListener 
    {
       public void actionPerformed(ActionEvent e) throws IndexOutOfBoundsException, NullPointerException
@@ -121,6 +135,10 @@ public class WarGUI extends JFrame
       }//actionPerformer
    }//finish button listener
    
+    /**
+   *The PlayButtonListener class is triggered when the user clicks the play round button. 
+   *The game is solely playable with this button, but can have hundreds of rounds
+   */
    
    class PlayButtonListener implements ActionListener //plays a round of war
    {
@@ -180,6 +198,12 @@ public class WarGUI extends JFrame
       }//actionPerformed for PlayButtonListener
    }//PlayButtonListener
    
+    /**
+   *The NewGameButtonListener class is triggered when the user clicks the new game button
+   *This button creates a new warGame, thus resetting the playing field.
+   */
+   
+   
    class NewGameButtonListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
@@ -220,6 +244,9 @@ public class WarGUI extends JFrame
       }//actionPerformed for PlayButtonListener
    }//PlayButtonListener
    
+    /**
+   *The ExitHandler class is used to exit the GUI upon clicking the Exit Button.
+      */
    
    
    

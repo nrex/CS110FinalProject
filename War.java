@@ -1,18 +1,31 @@
+/**
+ * Creat a War instance using the Deck and Card Classes. 
+ * A war game can be played using the .playRound() method.
+ *
+ * @Nathaniel Rex
+ */
+
+
 import java.util.ArrayList;
+
+
+
 
 public class War 
 {
-   private Deck warDeck;
-   public ArrayList<Card> player;
-   public ArrayList<Card> computer;
-   private ArrayList<Card> warPile;
+   private Deck warDeck; //an instance of deck used before I split the deck.
+   public ArrayList<Card> player; //player's cards
+   public ArrayList<Card> computer; //computer's cards
+   private ArrayList<Card> warPile; //used to collect cards during a war bout
    public int round_count; //a counter for info
-   private int HALF = 26;
-   private Card temp_card;
-   private int war_var;
-   public int game_over = 0;
+   private int HALF = 26; //used to split the deck
+   private Card temp_card; //temporary card object 
+   private int war_var; 
+   public int game_over = 0; //used to determine if the game has been won
 
-   
+/**
+The War() constructor creates and splits a shufled deck for the player. 
+*/  
    public War() throws NullPointerException //constructor establishes the deck as well as both of the players
    {
       warDeck = new Deck(); //initialize the decks
@@ -36,6 +49,11 @@ public class War
       
       round_count = 0; //initialize the number of rounds
    }//war constructor
+   
+   /**
+   The playround method is the only method necessary to play the war game. The return variable is used to determin the status of the game. 
+   */
+   
    
    public int playRound()//play a round of war
    {
@@ -89,8 +107,11 @@ public class War
        return 5;
    }//end play round
      
+      /**
+the warRound method is used by the playRound method and should not be accessed elsewhere. 
+*/
       
-      public int warRound()
+      private int warRound()
       {
          System.out.println("War!");
          Card warCard;

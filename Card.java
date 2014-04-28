@@ -3,7 +3,7 @@
  * A card consists of a suit value and a rank value.  Once instantiated, the
  * Card object cannot change.
  *
- * @Jackie Horton
+ * @Jackie Horton eddited by Nathaniel Rex
  */
 import javax.swing.*;
 import java.awt.*;
@@ -212,78 +212,5 @@ public class Card
       return front;   
    }
    
-  /* 
-   public void setImageIcon()   
-   {   
-      if (this.suit == 0) //yeah, yeah, I know this method sucks but I couldn't figure out how to nest switch statements 
-      {
-         if (rank == 2) front = new ImageIcon("2s.jpg");
-         if (rank == 3) front = new ImageIcon("3s.jpg");
-         if (rank == 4) front = new ImageIcon("4s.jpg");
-         if (rank == 5) front = new ImageIcon("5s.jpg");
-         if (rank == 6) front = new ImageIcon("6s.jpg");
-         if (rank == 7) front = new ImageIcon("7s.jpg");
-         if (rank == 8) front = new ImageIcon("8s.jpg");
-         if (rank == 9) front = new ImageIcon("9s.jpg");
-         if (rank == 10) front = new ImageIcon("10s.jpg");
-         if (rank == 11) front = new ImageIcon("jacks.jpg");
-         if (rank == 12) front = new ImageIcon("queens.jpg");
-         if (rank == 13) front = new ImageIcon("kings.jpg");
-         if (rank == 1) front = new ImageIcon("aces.jpg");
-         
-      }
-      else if (this.suit == 1)
-      {
-         if (rank == 2) front = new ImageIcon("2h.jpg");
-         if (rank == 3) front = new ImageIcon("3h.jpg");
-         if (rank == 4) front = new ImageIcon("4h.jpg");
-         if (rank == 5) front = new ImageIcon("5h.jpg");
-         if (rank == 6) front = new ImageIcon("6h.jpg");
-         if (rank == 7) front = new ImageIcon("7h.jpg");
-         if (rank == 8) front = new ImageIcon("8h.jpg");
-         if (rank == 9) front = new ImageIcon("9h.jpg");
-         if (rank == 10) front = new ImageIcon("10h.jpg");
-         if (rank == 11) front = new ImageIcon("jackh.jpg");
-         if (rank == 12) front = new ImageIcon("queenh.jpg");
-         if (rank == 13) front = new ImageIcon("kingh.jpg");
-         if (rank == 1) front = new ImageIcon("aceh.jpg");
-         
-      }
-      else if (this.suit == 3)
-      {
-         if (rank == 2) front = new ImageIcon("2d.jpg");
-         if (rank == 3) front = new ImageIcon("3d.jpg");
-         if (rank == 4) front = new ImageIcon("4d.jpg");
-         if (rank == 5) front = new ImageIcon("5d.jpg");
-         if (rank == 6) front = new ImageIcon("6d.jpg");
-         if (rank == 7) front = new ImageIcon("7d.jpg");
-         if (rank == 8) front = new ImageIcon("8d.jpg");
-         if (rank == 9) front = new ImageIcon("9d.jpg");
-         if (rank == 10) front = new ImageIcon("10d.jpg");
-         if (rank == 11) front = new ImageIcon("jackd.jpg");
-         if (rank == 12) front = new ImageIcon("queend.jpg");
-         if (rank == 13) front = new ImageIcon("kingd.jpg");
-         if (rank == 1) front = new ImageIcon("aced.jpg");
-        
-      }
-      else if (this.suit ==4)
-      {
-         if (rank == 2) front = new ImageIcon("2c.jpg");
-         if (rank == 3) front = new ImageIcon("3c.jpg");
-         if (rank == 4) front = new ImageIcon("4c.jpg");
-         if (rank == 5) front = new ImageIcon("5c.jpg");
-         if (rank == 6) front = new ImageIcon("6c.jpg");
-         if (rank == 7) front = new ImageIcon("7c.jpg");
-         if (rank == 8) front = new ImageIcon("8c.jpg");
-         if (rank == 9) front = new ImageIcon("9c.jpg");
-         if (rank == 10) front = new ImageIcon("10c.jpg");
-         if (rank == 11) front = new ImageIcon("jackc.jpg");
-         if (rank == 12) front = new ImageIcon("queenc.jpg");
-         if (rank == 13) front = new ImageIcon("kingc.jpg");
-         if (rank == 1) front = new ImageIcon("acec.jpg");
-         
-      }
-   }//end of setImageIcon
-   */
 }// end of class
     

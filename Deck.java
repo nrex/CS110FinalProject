@@ -1,3 +1,6 @@
+//Nathaniel Rex
+// The Deck class that was given to us by Jackie, no edits. 
+
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -53,7 +56,7 @@ public class Deck
       return (deck.size() == 0);
    }
    // by rank only
-   public static Card highCard(Card...cards)
+   public static Card highCard(Card...cards) 
    {
    
       Card high = cards[0];
