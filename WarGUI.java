@@ -5,8 +5,8 @@ import java.awt.event.*;
 public class WarGUI extends JFrame
 {
    private War warGame; //warGame 
-   private JPanel leftPanel= new JPanel(new GridLayout(4,1,1,4)); //player info
-   private JPanel rightPanel= new JPanel(new GridLayout(4,1,1,4));//computer info
+   private JPanel leftPanel= new JPanel(new GridLayout(5,1,2,2)); //player info
+   private JPanel rightPanel= new JPanel(new GridLayout(5,1,2,2));//computer info
    private JPanel buttons = new JPanel(new GridLayout(5,1,2,2)); //button panel
    private JButton playButton, exit, newGameButton, finish;
    private JLabel status, title, per, com, round, round_winner, pCC, cCC;
@@ -133,6 +133,15 @@ public class WarGUI extends JFrame
             leftPanel.remove(round);
             rightPanel.remove(round_winner);
             int winner = warGame.playRound(); 
+            
+            if (warGame.game_over == 1) //game has ended
+            {
+               System.out.println("drag the corner of the GUI to display proper text...");
+               round_winner = new JLabel("The game has ended.");
+               rightPanel.add(round_winner); //for some reason this only displays when reformating the gui aka dragging the corner. 
+               leftPanel.add(round_winner); 
+            } 
+            else {
             Card testCard1 = warGame.player.get(0);
             Card testCard2 = warGame.computer.get(0);
             back1.setIcon(testCard1.getImageIcon()); //flip 
@@ -147,9 +156,11 @@ public class WarGUI extends JFrame
             cCC = new JLabel("\nComputer Card Count: " + computerCardCount); //display the number of cards computer has
             
             leftPanel.add(pCC);
-            rightPanel.add(cCC);
+            rightPanel.add(cCC); 
             
-            if (testCard1.getRank()>testCard2.getRank())
+            
+            
+            if (testCard1.getRank()>testCard2.getRank()) 
             {
                round_winner = new JLabel("Player won!");
 
@@ -164,7 +175,7 @@ public class WarGUI extends JFrame
             }
             rightPanel.add(round_winner);
             leftPanel.add(round);
-            
+            }//if the game has not been won.
          } 
       }//actionPerformed for PlayButtonListener
    }//PlayButtonListener
@@ -175,6 +186,7 @@ public class WarGUI extends JFrame
       {     
          if (e.getSource() instanceof JButton)
          {
+            leftPanel.remove(round_winner);
             leftPanel.remove(pCC);
             rightPanel.remove(cCC);
             leftPanel.remove(round);
@@ -220,13 +232,13 @@ public class WarGUI extends JFrame
    }//ExitHandler
    
    public static void main(String[] args) {
-	  new WarGUI();
+	  new WarGUI(); //gogo Gadget WARRRRR!!!!!!!!!!!!!!
 
-   }
+   }// end of main
     
            
 
 
-}
+}// end of class
       
       
